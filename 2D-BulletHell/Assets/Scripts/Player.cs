@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
     //Movements 
     public float moveSpeed;
     private Vector2 moveVelocity;
-    public Vector2 moveInput;
+    [HideInInspector] public Vector2 moveInput;
 
     //Stats
     public int health = 10;
