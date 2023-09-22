@@ -26,10 +26,14 @@ public class Enemy : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player")) {
-            Instantiate(bleedEffect, transform.position, Quaternion.identity);
-            player.health--;
-            Debug.Log(player.health);
-            Destroy(gameObject);
+            if (!player.isInvincible)
+            {
+                Instantiate(bleedEffect, transform.position, Quaternion.identity);
+                player.health--;
+                Debug.Log(player.health);
+                Destroy(gameObject);
+                player.InvincibleTime();
+            }
         }
 
         if (collision.CompareTag("Projectile")) {
@@ -37,6 +41,14 @@ public class Enemy : MonoBehaviour
             player.score += 100;
             Debug.Log(player.score);
             Destroy(collision.gameObject);
+            Destroy(gameObject);
+        }
+
+        if (collision.CompareTag("SkillAura"))
+        {
+            Instantiate(bleedEffect, transform.position, Quaternion.identity);
+            player.score += 100;
+            Debug.Log(player.score);
             Destroy(gameObject);
         }
     }
