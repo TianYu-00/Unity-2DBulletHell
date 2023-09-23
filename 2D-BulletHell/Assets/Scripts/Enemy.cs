@@ -20,7 +20,17 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = Vector2.MoveTowards(transform.position, playerPos.position, moveSpeed * Time.deltaTime);
+        if (!player.isInvincible || Vector2.Distance(transform.position, playerPos.position) > 1.5)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, playerPos.position, moveSpeed * Time.deltaTime);
+        }
+        else if (player.isInvincible && Vector2.Distance(transform.position, playerPos.position) < 1.5)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, playerPos.position, -1 * moveSpeed * Time.deltaTime);
+        }
+            
+
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -30,10 +40,11 @@ public class Enemy : MonoBehaviour
             {
                 Instantiate(bleedEffect, transform.position, Quaternion.identity);
                 player.health--;
-                Debug.Log(player.health);
+                //Debug.Log(player.health);
                 Destroy(gameObject);
                 player.InvincibleTime();
             }
+
         }
 
         if (collision.CompareTag("Projectile")) {
@@ -41,6 +52,14 @@ public class Enemy : MonoBehaviour
             player.score += 100;
             Debug.Log(player.score);
             Destroy(collision.gameObject);
+            Destroy(gameObject);
+        }
+
+        if (collision.CompareTag("Slash"))
+        {
+            Instantiate(bleedEffect, transform.position, Quaternion.identity);
+            player.score += 100;
+            Debug.Log(player.score);
             Destroy(gameObject);
         }
 

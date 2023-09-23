@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerSkill : MonoBehaviour
 {
+    public bool isAllowSkill;
     public GameObject[] skills;
     private Transform playerPos;
 
@@ -13,11 +14,16 @@ public class PlayerSkill : MonoBehaviour
     {
         playerPos = GameObject.FindGameObjectWithTag("Player").transform;
 
-        if (skills.Length > 0)
+        if (isAllowSkill)
         {
+            if (skills.Length > 0)
+            {
 
-            SpawnSkillAura();
+                SpawnSkillAura();
+            }
         }
+
+        
         
     }
 

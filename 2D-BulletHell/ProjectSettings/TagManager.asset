@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Projectile
   - SkillAura
+  - Slash
   layers:
   - Default
   - TransparentFX

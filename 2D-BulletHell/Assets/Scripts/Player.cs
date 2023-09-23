@@ -27,10 +27,6 @@ public class Player : MonoBehaviour
     public float invincibleTimeDuration;
     private float invincibleCDTimer;
 
-
-
-
-
     //Stats
     public int health = 10;
     public int score = 0;
