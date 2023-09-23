@@ -8,13 +8,14 @@ public class Enemy : MonoBehaviour
     private Player player;
     private Transform playerPos;
     public GameObject bleedEffect;
-    
+    private CameraShakeScript camerShakeScript;
 
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         playerPos = GameObject.FindGameObjectWithTag("Player").transform;
-        
+        camerShakeScript = GameObject.FindGameObjectWithTag("vcam").GetComponent<CameraShakeScript>();
+
     }
 
     // Update is called once per frame
@@ -43,6 +44,7 @@ public class Enemy : MonoBehaviour
                 //Debug.Log(player.health);
                 Destroy(gameObject);
                 player.InvincibleTime();
+                camerShakeScript.StartShake(5, 0.3f);
             }
 
         }
@@ -51,6 +53,7 @@ public class Enemy : MonoBehaviour
             Instantiate(bleedEffect, transform.position, Quaternion.identity);
             player.score += 100;
             Debug.Log(player.score);
+            camerShakeScript.StartShake(5, 0.3f);
             Destroy(collision.gameObject);
             Destroy(gameObject);
         }
@@ -60,6 +63,7 @@ public class Enemy : MonoBehaviour
             Instantiate(bleedEffect, transform.position, Quaternion.identity);
             player.score += 100;
             Debug.Log(player.score);
+            camerShakeScript.StartShake(5, 0.3f);
             Destroy(gameObject);
         }
 

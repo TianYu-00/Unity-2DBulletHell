@@ -10,10 +10,12 @@ public class Slashing : MonoBehaviour
     public float slashTimeDuration;
     private float slashCDTimer;
 
+
     // Start is called before the first frame update
     void Start()
     {
         slashCDTimer = 0;
+
     }
 
     // Update is called once per frame
@@ -41,6 +43,7 @@ public class Slashing : MonoBehaviour
                 //Rotate the object
                 newObject.transform.rotation = Quaternion.Euler(0f, 0f, degrees);
                 slashCDTimer = slashTimeDuration;
+
                 Destroy(newObject, 0.05f);
 
                 
