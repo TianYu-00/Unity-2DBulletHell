@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -8792950749061370806}
   - component: {fileID: 5834659812591573907}
   m_Layer: 0
-  m_Name: SkillAura
+  m_Name: DamageAura
   m_TagString: SkillAura
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -137,3 +137,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 500
+  distanceOffset: 5

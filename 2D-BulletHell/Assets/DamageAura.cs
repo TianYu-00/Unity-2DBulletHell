@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SkillAura : MonoBehaviour
+public class DamageAura : MonoBehaviour
 {
     public float rotationSpeed = 30f;
     public float distanceOffset = 5f;
@@ -23,8 +23,8 @@ public class SkillAura : MonoBehaviour
     public void Spawn(Transform playerPos)
     {
         Vector3 spawnPosition = playerPos.position + new Vector3(distanceOffset, 0f, 0f);
-        GameObject skillAura = Instantiate(gameObject, spawnPosition, Quaternion.identity);
-        skillAura.transform.SetParent(playerPos);
+        GameObject damageAura = Instantiate(gameObject, spawnPosition, Quaternion.identity);
+        damageAura.transform.SetParent(playerPos);
     }
 
 }

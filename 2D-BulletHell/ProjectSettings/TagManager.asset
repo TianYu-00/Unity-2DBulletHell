@@ -5,9 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Projectile
-  - SkillAura
   - Slash
   - vcam
+  - DamageAura
   layers:
   - Default
   - TransparentFX

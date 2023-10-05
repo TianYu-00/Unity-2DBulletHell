@@ -52,7 +52,7 @@ public class Enemy : MonoBehaviour
         if (collision.CompareTag("Projectile")) {
             Instantiate(bleedEffect, transform.position, Quaternion.identity);
             player.score += 100;
-            Debug.Log(player.score);
+            //Debug.Log(player.score);
             camerShakeScript.StartShake(5, 0.3f);
             Destroy(collision.gameObject);
             Destroy(gameObject);
@@ -62,7 +62,7 @@ public class Enemy : MonoBehaviour
         {
             Instantiate(bleedEffect, transform.position, Quaternion.identity);
             player.score += 100;
-            Debug.Log(player.score);
+            //Debug.Log(player.score);
             camerShakeScript.StartShake(5, 0.3f);
             Destroy(gameObject);
         }
@@ -71,7 +71,7 @@ public class Enemy : MonoBehaviour
         {
             Instantiate(bleedEffect, transform.position, Quaternion.identity);
             player.score += 100;
-            Debug.Log(player.score);
+            //Debug.Log(player.score);
             Destroy(gameObject);
         }
     }

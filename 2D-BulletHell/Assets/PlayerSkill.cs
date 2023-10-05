@@ -29,7 +29,7 @@ public class PlayerSkill : MonoBehaviour
 
     void SpawnSkillAura()
     {
-        SkillAura skillAuraScript = skills[0].GetComponent<SkillAura>();
+        DamageAura skillAuraScript = skills[0].GetComponent<DamageAura>();
         skillAuraScript.Spawn(playerPos);
     }
 
