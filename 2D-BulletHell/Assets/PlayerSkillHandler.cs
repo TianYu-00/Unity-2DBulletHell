@@ -17,7 +17,7 @@ public class PlayerSkillHandler : MonoBehaviour
     public GameObject cardPanel;
     public bool isShowCardPanel = false;
     private List<int> randomIntList = new List<int>();
-    [SerializeField] private int multiplierOfIntValue = 1500;
+    public int multiplierOfIntValue = 1500;
 
     [Header("Text UI")]
     public TextMeshProUGUI skillText1;
@@ -74,8 +74,8 @@ public class PlayerSkillHandler : MonoBehaviour
             isShowCardPanel = false;
         }
 
+        //RIGHT NOW ITS JUST 'WHEN REACH XXX SCORE SHOW UPGRADE SELECTION'
         tempPlayerScore = player.score;
-
         if (tempPlayerScore % multiplierOfIntValue == 0 && tempPlayerScore != 0 && !multiplierOfScore)
         {
             Debug.Log("Multiple of 1500 Reached");

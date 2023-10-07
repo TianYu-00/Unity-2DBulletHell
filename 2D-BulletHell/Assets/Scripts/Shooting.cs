@@ -17,7 +17,7 @@ public class Shooting : MonoBehaviour
     private void Update()
     {
         if (pause.GetIsPaused()) { return; }
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && Time.timeScale != 0)
         {
             Instantiate(shot, playerPos.position, Quaternion.identity);
         }
