@@ -8,6 +8,8 @@ TagManager:
   - Slash
   - vcam
   - DamageAura
+  - SkillAura
+  - Enemy
   layers:
   - Default
   - TransparentFX

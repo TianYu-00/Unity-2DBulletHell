@@ -31,10 +31,15 @@ public class PlayerSkillHandler : MonoBehaviour
 
 
     [Header("Skill Set")]
+    //Damage Aura
     public GameObject damageAura;
     public bool isAllowDamageAura = false;
     public bool isUnlockedDamageAura = false;
-    
+    //Auto Shooter
+    public GameObject autoShooter;
+    public bool isAllowAutoShooter = false;
+    public bool isUnlockedAutoShooter = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -49,6 +54,12 @@ public class PlayerSkillHandler : MonoBehaviour
                 DamageAura damageAuraScript = damageAura.GetComponent<DamageAura>();
                 damageAuraScript.Spawn(playerPos);
                 isUnlockedDamageAura = true;
+            }
+            if (isAllowAutoShooter)
+            {
+                AutoShooter autoShooterScript = autoShooter.GetComponent<AutoShooter>();
+                autoShooterScript.Spawn(playerPos);
+                isUnlockedAutoShooter = true;
             }
             
         }
@@ -78,7 +89,7 @@ public class PlayerSkillHandler : MonoBehaviour
         tempPlayerScore = player.score;
         if (tempPlayerScore % multiplierOfIntValue == 0 && tempPlayerScore != 0 && !multiplierOfScore)
         {
-            Debug.Log("Multiple of 1500 Reached");
+            //Debug.Log("Multiple of 1500 Reached");
             multiplierOfScore = true;
 
             //Show panel
@@ -91,7 +102,7 @@ public class PlayerSkillHandler : MonoBehaviour
                 randomIntList.Add(randomNumber);
                 DisplaySkill(randomNumber, i);
             }
-            Debug.Log(randomIntList.Count);
+            //Debug.Log(randomIntList.Count);
             
 
         }
@@ -147,7 +158,7 @@ public class PlayerSkillHandler : MonoBehaviour
         }
         else if (whichSkill == 1)
         {
-            tempText = "Test2";
+            tempText = "Auto Shooter";
         }
         else if (whichSkill == 2)
         {
@@ -183,6 +194,16 @@ public class PlayerSkillHandler : MonoBehaviour
             isUnlockedDamageAura = true;
             Debug.Log("Damage Aura Unlocked");
         }
+        else if (!isUnlockedAutoShooter && whichSkill == 1)
+        {
+            isAllowAutoShooter = true;
+            AutoShooter autoShooterScript = autoShooter.GetComponent<AutoShooter>();
+            autoShooterScript.Spawn(playerPos);
+            isUnlockedAutoShooter = true;
+            Debug.Log("Auto Shooter Unlocked");
+        }
+
+
         randomIntList.Clear();
         isShowCardPanel = false;
         Time.timeScale = 1f; //NEED TO BE CHANGED LATER TEMP USE ONLY //NOTICE !!!
@@ -191,7 +212,7 @@ public class PlayerSkillHandler : MonoBehaviour
     public void ButtonOneClicked()
     {
         int tempInt = randomIntList[0];
-        Debug.Log("Button 1 Clicked: " + tempInt);
+        //Debug.Log("Button 1 Clicked: " + tempInt);
         UnlockSkill(tempInt);
         
     }
@@ -199,14 +220,14 @@ public class PlayerSkillHandler : MonoBehaviour
     public void ButtonTwoClicked()
     {
         int tempInt = randomIntList[1];
-        Debug.Log("Button 2 Clicked: " + tempInt);
+        //Debug.Log("Button 2 Clicked: " + tempInt);
         UnlockSkill(tempInt);
     }
 
     public void ButtonThreeClicked()
     {
         int tempInt = randomIntList[2];
-        Debug.Log("Button 3 Clicked: " + tempInt);
+        //Debug.Log("Button 3 Clicked: " + tempInt);
         UnlockSkill(tempInt);
     }
 
